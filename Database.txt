@@ -1,0 +1,13 @@
+CREATE DATABASE Elearning;
+
+USE Elearning;
+
+CREATE TABLE Student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    mobile_number VARCHAR(15) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL
+);
