@@ -1,0 +1,47 @@
+.profile-container {
+  background: linear-gradient(to right, #eee4f8, #93b4ec);
+  padding: 20px;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.card-body {
+  padding: 20px;
+  background: #fff;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.form-control {
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(38, 132, 255, 0.8);
+}
+
+.btn {
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  color: #fff;
+}

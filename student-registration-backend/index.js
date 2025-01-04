@@ -62,6 +62,27 @@ app.post("/login", (req, res) => {
   });
 });
 
+// API Endpoint to update a student
+app.put("/update", (req, res) => {
+  const { first_name, last_name, mobile_number, city, email, password } =
+    req.body;
+
+  const sql =
+    "UPDATE Student SET first_name = ?, last_name = ?, mobile_number = ?, city = ?, password = ? WHERE email = ?";
+  db.query(
+    sql,
+    [first_name, last_name, mobile_number, city, password, email],
+    (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error updating student information");
+      } else {
+        res.send("Student information updated successfully");
+      }
+    }
+  );
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
