@@ -1,0 +1,49 @@
+.bg {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/036/226/872/non_2x/ai-generated-nature-landscapes-background-free-photo.jpg");
+  /* https://static.vecteezy.com/system/resources/thumbnails/037/814/719/small_2x/ai-generated-autumn-leaves-in-the-forest-nature-background-photo.jpg */
+  /* https://static.vecteezy.com/system/resources/previews/036/226/872/non_2x/ai-generated-nature-landscapes-background-free-photo.jpg */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
+}
+
+.welcome {
+  color: white;
+  margin-top: -50px;
+  font-weight: 600;
+}
+
+h1 span {
+  color: rgb(255, 83, 21);
+}
+.welPara {
+  color: white;
+}
+
+.form-control:focus {
+  border-color: #0096ff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+  border-radius: 15px;
+  border: none;
+  overflow: hidden;
+}
+
+.card-header {
+  background: linear-gradient(to right, #0062cc, #0096ff);
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: 15px;
+  }
+}
