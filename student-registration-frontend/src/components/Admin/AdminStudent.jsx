@@ -5,7 +5,7 @@ import AdminHeader from "./AdminHeader/AdminHeader";
 const AdminStudent = () => {
   const [students, setStudents] = useState([]); // State to hold student data
 
-  // Fetch student data from the API
+  //* Fetch student data from the API
   useEffect(() => {
     axios
       .get("http://localhost:5000/students")

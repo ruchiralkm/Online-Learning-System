@@ -2,6 +2,8 @@ const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const multer = require("multer");
+const path = require("path");
 
 const app = express();
 const PORT = 5000;
@@ -9,13 +11,14 @@ const PORT = 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Serve uploaded files
 
 // MySQL connection
 const db = mysql.createConnection({
   host: "localhost",
   user: "root", // Replace with your MySQL username
   password: "1234", // Replace with your MySQL password
-  database: "Elearning",
+  database: "Elearning", // Replace with your database name
 });
 
 db.connect((err) => {
@@ -23,7 +26,30 @@ db.connect((err) => {
   console.log("MySQL Connected...");
 });
 
-// API Endpoint to insert a student
+// Configure multer for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/"); // Folder to store uploaded images
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); // Unique file name
+  },
+});
+
+// File filter to allow only image files
+const fileFilter = (req, file, cb) => {
+  const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+  if (allowedTypes.includes(file.mimetype)) {
+    cb(null, true); // Accept file
+  } else {
+    cb(new Error("Only .png, .jpg, and .jpeg format allowed!"), false); // Reject file
+  }
+};
+
+const upload = multer({ storage, fileFilter });
+
+//!====================== STUDENT DETAILS ================//
+// API Endpoint to insert/Register a student
 app.post("/register", (req, res) => {
   const { first_name, last_name, mobile_number, city, email, password } =
     req.body;
@@ -44,7 +70,7 @@ app.post("/register", (req, res) => {
   );
 });
 
-// API Endpoint for Login
+// API Endpoint for Login Student
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
@@ -62,7 +88,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-// API Endpoint to update a student
+// API Endpoint to Update a student details
 app.put("/update", (req, res) => {
   const { first_name, last_name, mobile_number, city, email, password } =
     req.body;
@@ -83,7 +109,7 @@ app.put("/update", (req, res) => {
   );
 });
 
-// API Endpoint to fetch all students
+// API Endpoint to fetch all students / View Student details
 app.get("/students", (req, res) => {
   const sql = "SELECT * FROM Student";
   db.query(sql, (err, results) => {
@@ -95,7 +121,32 @@ app.get("/students", (req, res) => {
     }
   });
 });
+//! END STUDENT DETAILS //
 
+//!====================== COURSE DETAILS ================//
+// API endpoint to add a course with an image
+app.post("/add-course", upload.single("image"), (req, res) => {
+  const { title, teacher_name, lessons, price } = req.body;
+  const imagePath = req.file ? `/uploads/${req.file.filename}` : null; // Store the image path
+
+  const sql =
+    "INSERT INTO Courses (title, image, teacher_name, lessons, price) VALUES (?, ?, ?, ?, ?)";
+  db.query(
+    sql,
+    [title, imagePath, teacher_name, lessons, price],
+    (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error storing course information");
+      } else {
+        res.send("Course added successfully");
+      }
+    }
+  );
+});
+//! END COURSE DETAILS //
+
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

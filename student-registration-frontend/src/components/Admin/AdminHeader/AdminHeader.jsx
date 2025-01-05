@@ -33,6 +33,31 @@ const AdminHeader = () => {
                 </Link>
               </li>
 
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="coursesDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Courses
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="coursesDropdown">
+                  <li>
+                    <Link className="dropdown-item" to="/AddCourses">
+                      Add Courses
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/ViewBooks">
+                      View Courses
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to="/">
                   Logout
