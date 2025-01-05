@@ -83,6 +83,19 @@ app.put("/update", (req, res) => {
   );
 });
 
+// API Endpoint to fetch all students
+app.get("/students", (req, res) => {
+  const sql = "SELECT * FROM Student";
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error retrieving student information");
+    } else {
+      res.json(results); // Send the student data as a JSON response
+    }
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

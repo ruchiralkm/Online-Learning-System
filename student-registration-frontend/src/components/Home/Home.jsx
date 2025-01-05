@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 import "./Home.css"; // Custom styles for the carousel
+import Courses from "./Courses/Courses";
 
 const Home = ({ student }) => {
   return (
@@ -77,6 +78,11 @@ const Home = ({ student }) => {
           OtherPage
         </Link>
       </button>
+
+      {/* Courses cards */}
+      <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
+        <Courses />
+      </div>
     </>
   );
 };

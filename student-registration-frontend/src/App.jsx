@@ -5,6 +5,8 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register";
 import OtherPage from "./components/Home/OtherPage";
 import Profile from "./components/Home/Profile";
+import AdminHome from "./components/Admin/AdminHome";
+import AdminStudent from "./components/Admin/AdminStudent";
 
 const App = () => {
   const [student, setStudent] = useState(null); // Manage student state
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/Register" element={<Register />} />
         <Route path="/OtherPage" element={<OtherPage />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/AdminHome" element={<AdminHome />} />
+        <Route path="/AdminStudent" element={<AdminStudent />} />
       </Routes>
     </Router>
   );

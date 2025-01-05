@@ -16,6 +16,16 @@ const Login = ({ setStudent }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if admin credentials are entered
+    if (
+      loginData.email === "admin@mail.com" &&
+      loginData.password === "admin"
+    ) {
+      navigate("/AdminHome"); // Redirect to AdminHome
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:5000/login",
