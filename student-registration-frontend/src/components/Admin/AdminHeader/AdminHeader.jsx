@@ -51,7 +51,7 @@ const AdminHeader = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/ViewBooks">
+                    <Link className="dropdown-item" to="/ViewCourses">
                       View Courses
                     </Link>
                   </li>

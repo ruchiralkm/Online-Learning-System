@@ -36,7 +36,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// File filter to allow only image files
 const fileFilter = (req, file, cb) => {
   const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
   if (allowedTypes.includes(file.mimetype)) {
@@ -49,7 +48,8 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({ storage, fileFilter });
 
 //!====================== STUDENT DETAILS ================//
-// API Endpoint to insert/Register a student
+
+// Register a student
 app.post("/register", (req, res) => {
   const { first_name, last_name, mobile_number, city, email, password } =
     req.body;
@@ -70,7 +70,7 @@ app.post("/register", (req, res) => {
   );
 });
 
-// API Endpoint for Login Student
+// Login Student
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
@@ -88,7 +88,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-// API Endpoint to Update a student details
+// Update student details
 app.put("/update", (req, res) => {
   const { first_name, last_name, mobile_number, city, email, password } =
     req.body;
@@ -109,7 +109,7 @@ app.put("/update", (req, res) => {
   );
 });
 
-// API Endpoint to fetch all students / View Student details
+// View student details
 app.get("/students", (req, res) => {
   const sql = "SELECT * FROM Student";
   db.query(sql, (err, results) => {
@@ -121,10 +121,12 @@ app.get("/students", (req, res) => {
     }
   });
 });
+
 //! END STUDENT DETAILS //
 
 //!====================== COURSE DETAILS ================//
-// API endpoint to add a course with an image
+
+// Add a course with an image
 app.post("/add-course", upload.single("image"), (req, res) => {
   const { title, teacher_name, lessons, price } = req.body;
   const imagePath = req.file ? `/uploads/${req.file.filename}` : null; // Store the image path
@@ -144,6 +146,57 @@ app.post("/add-course", upload.single("image"), (req, res) => {
     }
   );
 });
+
+// Get all courses
+app.get("/courses", (req, res) => {
+  const sql = "SELECT * FROM Courses";
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error retrieving course information");
+    } else {
+      res.json(results); // Send course data as JSON
+    }
+  });
+});
+
+// Update a course
+app.put("/update-course/:id", upload.single("image"), (req, res) => {
+  const { id } = req.params; // Get course ID from URL
+  const { title, teacher_name, lessons, price } = req.body;
+  const imagePath = req.file ? `/uploads/${req.file.filename}` : null; // Store the image path if a new image is uploaded
+
+  const sql =
+    "UPDATE Courses SET title = ?, teacher_name = ?, lessons = ?, price = ?, image = ? WHERE id = ?";
+  db.query(
+    sql,
+    [title, teacher_name, lessons, price, imagePath, id],
+    (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error updating course information");
+      } else {
+        res.send("Course updated successfully");
+      }
+    }
+  );
+});
+
+// Delete a course
+app.delete("/delete-course/:id", (req, res) => {
+  const { id } = req.params; // Get course ID from URL
+  const sql = "DELETE FROM Courses WHERE id = ?";
+
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error deleting course");
+    } else {
+      res.send("Course deleted successfully");
+    }
+  });
+});
+
 //! END COURSE DETAILS //
 
 // Start the server
