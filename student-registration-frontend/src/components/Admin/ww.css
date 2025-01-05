@@ -1,5 +1,5 @@
 /* Modal background */
-.modal {
+.Viewmodal {
   display: flex;
   position: fixed;
   top: 0;
@@ -13,7 +13,7 @@
 }
 
 /* Modal content */
-.modal-content {
+.Viewmodal-content {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
@@ -32,6 +32,6 @@
 }
 
 /* Overlay close effect */
-.modal-content {
+.Viewmodal-content {
   transition: transform 0.3s ease-out;
 }

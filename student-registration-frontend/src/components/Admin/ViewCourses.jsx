@@ -155,8 +155,8 @@ const ViewCourses = () => {
 
       {/* Modal for updating course */}
       {showModal && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="Viewmodal">
+          <div className="Viewmodal-content">
             <span className="close" onClick={closeModal}>
               &times;
             </span>
