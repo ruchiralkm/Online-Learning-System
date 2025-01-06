@@ -1,0 +1,44 @@
+.course-header {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.course-header img {
+  max-width: 500px;
+  max-height: 500px;
+}
+.course-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+.price-section {
+  color: #ff6600;
+}
+.lessons-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.lesson {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+.lesson:last-child {
+  border-bottom: none;
+}
+.lesson i {
+  font-size: 24px;
+  color: #5cb85c;
+}
+.buy-button {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+}

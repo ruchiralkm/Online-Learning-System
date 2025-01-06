@@ -79,6 +79,12 @@ const Home = ({ student }) => {
         </Link>
       </button>
 
+      <h1
+        className="text-center title-gradient"
+        style={{ marginBottom: "-30px" }}
+      >
+        Explore Our Courses
+      </h1>
       {/* Courses cards */}
       <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
         <Courses />

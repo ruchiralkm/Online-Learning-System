@@ -9,6 +9,7 @@ import AdminHome from "./components/Admin/AdminHome";
 import AdminStudent from "./components/Admin/AdminStudent";
 import AddCourses from "./components/Admin/AddCourses";
 import ViewCourses from "./components/Admin/ViewCourses";
+import CoursesView from "./components/Home/Courses/CoursesView";
 
 const App = () => {
   const [student, setStudent] = useState(null); // Manage student state
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/AdminStudent" element={<AdminStudent />} />
         <Route path="/AddCourses" element={<AddCourses />} />
         <Route path="/ViewCourses" element={<ViewCourses />} />
+        <Route path="/course/:id" element={<CoursesView />} />
       </Routes>
     </Router>
   );
