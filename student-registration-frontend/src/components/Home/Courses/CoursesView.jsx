@@ -119,7 +119,11 @@ const CoursesView = () => {
               <h3>
                 <strong>Description</strong>
               </h3>
-              <p>Web Development හරු පෙසල්කාපික හලාබ NodeJs...</p>
+              <p>
+                This course is about {course.title} and host by Mr/Mrs.{" "}
+                {course.teacher_name}. There are {course.lessons} lessons in
+                this course.
+              </p>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link from React Router
 import axios from "axios";
+
 import "./Courses.css"; // Import the custom CSS
 
 const Courses = () => {
@@ -36,7 +37,6 @@ const Courses = () => {
           onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
         />
       </div>
-
       <div className="row g-4 mb-5">
         {filteredCourses.length > 0 ? (
           filteredCourses.map((course) => (

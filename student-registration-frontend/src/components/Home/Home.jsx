@@ -87,7 +87,7 @@ const Home = ({ student }) => {
       </h1>
       {/* Courses cards */}
       <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
-        <Courses />
+        <Courses student={student} />
       </div>
     </>
   );
