@@ -33,7 +33,7 @@ td {
   border: 1px solid #ddd;
 }
 
-button {
+.GG {
   margin: 5px;
   padding: 8px 12px;
   border: none;
@@ -42,16 +42,16 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.GG:hover {
   opacity: 0.9;
 }
 
-button:first-child {
-  background-color: #17a2b8; /* Bootstrap Info Color */
+.GG:first-child {
+  background-color: #039233;
 }
 
-button:last-child {
-  background-color: #dc3545; /* Bootstrap Danger Color */
+.GG:last-child {
+  background-color: #dc3545;
 }
 
 /* Modal styling */
@@ -92,7 +92,7 @@ button:last-child {
   color: #dc3545;
 }
 
-form label {
+form .upLb {
   font-weight: bold;
   margin-top: 10px;
   display: block;
@@ -106,8 +106,8 @@ form input {
   border-radius: 5px;
 }
 
-form button {
-  background-color: #28a745; /* Bootstrap Success Color */
+/* form button {
+  background-color: #28a745;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -118,7 +118,7 @@ form button {
 
 form button:hover {
   background-color: #218838;
-}
+} */
 
 @keyframes fadeIn {
   from {

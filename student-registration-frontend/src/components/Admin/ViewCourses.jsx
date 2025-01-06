@@ -142,9 +142,14 @@ const ViewCourses = () => {
                   />
                 )}
               </td>
-              <td>
-                <button onClick={() => startEditingCourse(course)}>Edit</button>
-                <button onClick={() => handleDeleteCourse(course.id)}>
+              <td style={{ display: "flex", gap: "10px" }}>
+                <button class="GG" onClick={() => startEditingCourse(course)}>
+                  Edit
+                </button>
+                <button
+                  class="GG"
+                  onClick={() => handleDeleteCourse(course.id)}
+                >
                   Delete
                 </button>
               </td>
@@ -162,7 +167,9 @@ const ViewCourses = () => {
             </span>
             <h2>Edit Course</h2>
             <form onSubmit={handleUpdateCourse}>
-              <label htmlFor="title">Course Title</label>
+              <label className="upLb" htmlFor="title">
+                Course Title
+              </label>
               <input
                 type="text"
                 name="title"
@@ -172,7 +179,9 @@ const ViewCourses = () => {
               />
               <br />
 
-              <label htmlFor="teacher_name">Teacher's Name</label>
+              <label className="upLb" htmlFor="teacher_name">
+                Teacher's Name
+              </label>
               <input
                 type="text"
                 name="teacher_name"
@@ -182,7 +191,9 @@ const ViewCourses = () => {
               />
               <br />
 
-              <label htmlFor="lessons">Lessons</label>
+              <label className="upLb" htmlFor="lessons">
+                Lessons
+              </label>
               <input
                 type="number"
                 name="lessons"
@@ -192,7 +203,9 @@ const ViewCourses = () => {
               />
               <br />
 
-              <label htmlFor="price">Price (LKR)</label>
+              <label className="upLb" htmlFor="price">
+                Price (LKR)
+              </label>
               <input
                 type="number"
                 name="price"
@@ -202,7 +215,9 @@ const ViewCourses = () => {
               />
               <br />
 
-              <label htmlFor="image">Course Image</label>
+              <label className="upLb" htmlFor="image">
+                Course Image
+              </label>
               <input
                 type="file"
                 name="image"
@@ -211,7 +226,11 @@ const ViewCourses = () => {
               />
               <br />
 
-              <button type="submit">Update Course</button>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <button class="btn btn-success" type="submit">
+                  Update Course
+                </button>
+              </div>
             </form>
           </div>
         </div>
