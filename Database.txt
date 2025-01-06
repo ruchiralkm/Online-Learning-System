@@ -11,3 +11,13 @@ CREATE TABLE Student (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL
 );
+
+
+CREATE TABLE Courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    image VARCHAR(255),
+    teacher_name VARCHAR(255),
+    lessons INT,
+    price DECIMAL(10, 2)
+);

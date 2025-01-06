@@ -1,0 +1,46 @@
+/* Courses.css */
+
+/* Add a gradient to the section title */
+.title-gradient {
+  font-weight: bold;
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #1e90ff, #6a11cb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+/* Card-specific styles */
+.course-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the card images */
+.course-card img {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #1e90ff;
+}
+
+/* Button hover effect */
+.course-card .btn-outline-primary {
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.course-card .btn-outline-primary:hover {
+  background-color: #1e90ff;
+  color: #fff;
+}
+
+/* Container spacing and layout */
+.container {
+  max-width: 1200px;
+}
