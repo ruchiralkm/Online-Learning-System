@@ -197,40 +197,38 @@ app.delete("/delete-course/:id", (req, res) => {
   });
 });
 
-//! END COURSE DETAILS //
-
+//! Insert course order into ordercourses table
 app.post("/order-course", (req, res) => {
   const {
-    first_name,
-    last_name,
-    email,
-    mobile_number,
+    student_first_name,
+    student_last_name,
+    student_email,
+    student_mobile_number,
     course_id,
     course_title,
     course_price,
+    course_image,
   } = req.body;
 
-  const sql = `
-    INSERT INTO OrderCourses 
-    (first_name, last_name, email, mobile_number, course_id, course_title, course_price) 
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `;
+  const sql =
+    "INSERT INTO ordercourses (student_first_name, student_last_name, student_email, student_mobile_number, course_id, course_title, course_price, course_image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
   db.query(
     sql,
     [
-      first_name,
-      last_name,
-      email,
-      mobile_number,
+      student_first_name,
+      student_last_name,
+      student_email,
+      student_mobile_number,
       course_id,
       course_title,
       course_price,
+      course_image,
     ],
     (err, result) => {
       if (err) {
         console.error(err);
-        res.status(500).send("Error placing order");
+        res.status(500).send("Error inserting order into database");
       } else {
         res.send("Order placed successfully");
       }

@@ -70,9 +70,9 @@ const Home = ({ student }) => {
           <span className="sr-only">Next</span>
         </a>
       </div>
-      <p>
-        Hello, {student ? `${student.city} ${student.last_name}` : "Guest"}!
-      </p>
+      <p>Hello, {student ? `${student.id} ${student.last_name}` : "Guest"}!</p>
+      <h1>{student.id}</h1>
+
       <button>
         <Link to="/OtherPage" state={{ student }}>
           OtherPage

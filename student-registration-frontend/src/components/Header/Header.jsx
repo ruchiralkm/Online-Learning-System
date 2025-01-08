@@ -42,8 +42,8 @@ const Header = ({ student }) => {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/OtherPage" state={{ student }}>
-                  OtherPage
+                <Link className="nav-link" to="/MyCourses" state={{ student }}>
+                  My Courses
                 </Link>
               </li>
 

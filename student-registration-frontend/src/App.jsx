@@ -10,6 +10,7 @@ import AdminStudent from "./components/Admin/AdminStudent";
 import AddCourses from "./components/Admin/AddCourses";
 import ViewCources from "./components/Home/Courses/ViewCources";
 import AdminCourseDetails from "./components/Admin/AdminCourseDetails";
+import MyCourses from "./components/Home/Courses/MyCourses";
 
 const App = () => {
   const [student, setStudent] = useState(null); // Manage student state
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/Home" element={<Home student={student} />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/OtherPage" element={<OtherPage />} />
+        <Route path="/MyCourses" element={<MyCourses />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/ViewCources" element={<ViewCources />} />
         //*!====== Admin Header Controls=====*//
