@@ -8,8 +8,8 @@ import Profile from "./components/Home/Profile";
 import AdminHome from "./components/Admin/AdminHome";
 import AdminStudent from "./components/Admin/AdminStudent";
 import AddCourses from "./components/Admin/AddCourses";
-import ViewCourses from "./components/Admin/ViewCourses";
-import CoursesView from "./components/Home/Courses/CoursesView";
+import ViewCources from "./components/Home/Courses/ViewCources";
+import AdminCourseDetails from "./components/Admin/AdminCourseDetails";
 
 const App = () => {
   const [student, setStudent] = useState(null); // Manage student state
@@ -24,12 +24,12 @@ const App = () => {
         <Route path="/Register" element={<Register />} />
         <Route path="/OtherPage" element={<OtherPage />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/ViewCources" element={<ViewCources />} />
         //*!====== Admin Header Controls=====*//
         <Route path="/AdminHome" element={<AdminHome />} />
         <Route path="/AdminStudent" element={<AdminStudent />} />
         <Route path="/AddCourses" element={<AddCourses />} />
-        <Route path="/ViewCourses" element={<ViewCourses />} />
-        <Route path="/course/:id" element={<CoursesView />} />
+        <Route path="/AdminCourseDetails" element={<AdminCourseDetails />} />
       </Routes>
     </Router>
   );

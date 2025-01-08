@@ -5,7 +5,15 @@ import "./Header.css"; // Import the CSS file
 const Header = ({ student }) => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg custom-navbar">
+      <nav
+        className="navbar navbar-expand-lg custom-navbar"
+        style={{
+          background: "linear-gradient(to right, #2c3e50, #3498db)",
+          padding: "1rem",
+          boxShadow:
+            "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        }}
+      >
         <div className="container-fluid">
           <Link className="nav-link" to="/Home" state={{ student }}>
             📚Elearning

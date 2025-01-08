@@ -4,7 +4,7 @@ import axios from "axios";
 
 import "./Courses.css"; // Import the custom CSS
 
-const Courses = () => {
+const Courses = ({ student }) => {
   const [courses, setCourses] = useState([]);
   const [searchTerm, setSearchTerm] = useState(""); // State to hold the search term
 
@@ -27,6 +27,9 @@ const Courses = () => {
 
   return (
     <div className="container py-5">
+      <p>
+        Hello, {student.first_name} {student.last_name}{" "}
+      </p>
       {/* //*====== STYLISH SEARCH BAR =====// */}
       <div className="searchBox mb-4">
         <input
@@ -56,8 +59,9 @@ const Courses = () => {
                   </p>
                   {/* Navigate to CoursesView.jsx */}
                   <Link
-                    to={`/course/${course.id}`}
                     className="btn btn-outline-primary w-100"
+                    to="/ViewCources"
+                    state={{ student, course }}
                   >
                     View Course
                   </Link>

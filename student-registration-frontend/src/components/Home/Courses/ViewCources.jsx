@@ -1,51 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Hook to get URL parameters
-import axios from "axios";
+import React from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../../Header/Header";
-import "./CoursesView.css";
+import "./ViewCources.css";
 
-const CoursesView = () => {
-  const { id } = useParams(); // Get course ID from URL
-  const [course, setCourse] = useState(null);
-  const [loading, setLoading] = useState(true); // Add a loading state
-
-  useEffect(() => {
-    // Simulate a delay for 2 seconds
-    const fetchCourse = async () => {
-      try {
-        const response = await axios.get(`http://localhost:5000/courses`);
-        const selectedCourse = response.data.find((c) => c.id === parseInt(id));
-        setCourse(selectedCourse);
-        setTimeout(() => setLoading(false), 2000); // Set loading to false after 2 seconds
-      } catch (error) {
-        console.error("Error fetching course details:", error);
-        setLoading(false);
-      }
-    };
-    fetchCourse();
-  }, [id]);
-
-  if (loading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center min-vh-100">
-        <div className="spinner-grow text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (!course) {
-    return (
-      <div className="text-center py-5">
-        <p className="text-muted">Course not found.</p>
-      </div>
-    );
-  }
+const ViewCources = () => {
+  const location = useLocation();
+  const { student, course } = location.state || {}; // Access the passed state
 
   return (
-    <>
-      <Header />
+    <div>
+      <Header student={student} />
+
       <div class="container mt-5">
         <div class="course-header d-flex align-items-center justify-content-between">
           <div class="d-flex align-items-center">
@@ -129,29 +94,27 @@ const CoursesView = () => {
         </div>
       </div>
 
-      {/* <div className="container py-5">
-        <div className="card">
-          <img
-            src={`http://localhost:5000${course.image}`}
-            className="card-img-top"
-            alt={course.title}
-          />
-          <div className="card-body">
-            <h1 className="card-title">{course.title}</h1>
-            <p className="card-text">
-              <strong>Teacher:</strong> {course.teacher_name}
-            </p>
-            <p className="card-text">
-              <strong>Lessons:</strong> {course.lessons}
-            </p>
-            <p className="card-text">
-              <strong>Price:</strong> LKR. {course.price}
-            </p>
-          </div>
-        </div>
-      </div> */}
-    </>
+      {/*       
+      <p>
+        Welcome, {student.first_name} {student.last_name}!
+      </p>
+      <h1>{course.title}</h1>
+      <p>
+        <strong>Teacher:</strong> {course.teacher_name}
+      </p>
+      <p>
+        <strong>Lessons:</strong> {course.lessons}
+      </p>
+      <p>
+        <strong>Price:</strong> LKR. {course.price}
+      </p>
+      <img
+        src={`http://localhost:5000${course.image}`}
+        alt={course.title}
+        style={{ maxWidth: "100%", height: "auto" }}
+      /> */}
+    </div>
   );
 };
 
-export default CoursesView;
+export default ViewCources;

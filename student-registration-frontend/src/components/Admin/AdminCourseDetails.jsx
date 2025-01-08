@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AdminHeader from "./AdminHeader/AdminHeader";
-import "./ww.css";
+import "./Styles/AdminCourseDetails.css";
 
-const ViewCourses = () => {
+const AdminCourseDetails = () => {
   const [courses, setCourses] = useState([]);
   const [editingCourse, setEditingCourse] = useState(null); // Track course being edited
   const [courseData, setCourseData] = useState({
@@ -239,4 +239,4 @@ const ViewCourses = () => {
   );
 };
 
-export default ViewCourses;
+export default AdminCourseDetails;
