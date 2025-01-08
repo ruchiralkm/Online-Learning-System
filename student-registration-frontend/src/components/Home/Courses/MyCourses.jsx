@@ -11,6 +11,8 @@ const MyCourses = () => {
       <h1>MyCourses Page</h1>
       <p>{student.first_name}</p>
       <p>{student.last_name}</p>
+      <p>{student.last_name}</p>
+      <p>{student.mobile_number}</p>
     </div>
   );
 };
