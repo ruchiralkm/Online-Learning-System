@@ -70,7 +70,7 @@ app.post("/register", (req, res) => {
   );
 });
 
-// Login Student
+//* Login Student *//
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
@@ -88,7 +88,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-// Update student details
+//* Update student details
 app.put("/update", (req, res) => {
   const { first_name, last_name, mobile_number, city, email, password } =
     req.body;
@@ -109,7 +109,7 @@ app.put("/update", (req, res) => {
   );
 });
 
-// View student details
+//* View student details
 app.get("/students", (req, res) => {
   const sql = "SELECT * FROM Student";
   db.query(sql, (err, results) => {
@@ -126,7 +126,7 @@ app.get("/students", (req, res) => {
 
 //!====================== COURSE DETAILS ================//
 
-// Add a course with an image
+//* Add a course with an image
 app.post("/add-course", upload.single("image"), (req, res) => {
   const { title, teacher_name, lessons, price } = req.body;
   const imagePath = req.file ? `/uploads/${req.file.filename}` : null; // Store the image path
@@ -147,7 +147,7 @@ app.post("/add-course", upload.single("image"), (req, res) => {
   );
 });
 
-// Get all courses
+//* Get all courses
 app.get("/courses", (req, res) => {
   const sql = "SELECT * FROM Courses";
   db.query(sql, (err, results) => {
@@ -160,7 +160,7 @@ app.get("/courses", (req, res) => {
   });
 });
 
-// Update a course
+//* Update a course
 app.put("/update-course/:id", upload.single("image"), (req, res) => {
   const { id } = req.params; // Get course ID from URL
   const { title, teacher_name, lessons, price } = req.body;
@@ -182,7 +182,7 @@ app.put("/update-course/:id", upload.single("image"), (req, res) => {
   );
 });
 
-// Delete a course
+//* Delete a course
 app.delete("/delete-course/:id", (req, res) => {
   const { id } = req.params; // Get course ID from URL
   const sql = "DELETE FROM Courses WHERE id = ?";
@@ -198,6 +198,45 @@ app.delete("/delete-course/:id", (req, res) => {
 });
 
 //! END COURSE DETAILS //
+
+app.post("/order-course", (req, res) => {
+  const {
+    first_name,
+    last_name,
+    email,
+    mobile_number,
+    course_id,
+    course_title,
+    course_price,
+  } = req.body;
+
+  const sql = `
+    INSERT INTO OrderCourses 
+    (first_name, last_name, email, mobile_number, course_id, course_title, course_price) 
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    sql,
+    [
+      first_name,
+      last_name,
+      email,
+      mobile_number,
+      course_id,
+      course_title,
+      course_price,
+    ],
+    (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send("Error placing order");
+      } else {
+        res.send("Order placed successfully");
+      }
+    }
+  );
+});
 
 // Start the server
 app.listen(PORT, () => {
