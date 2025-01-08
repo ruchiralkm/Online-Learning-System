@@ -27,7 +27,7 @@ const ViewCources = () => {
           course_id: course.id,
           course_title: course.title,
           course_price: course.price,
-          course_image: `http://localhost:5000${course.image}`,
+          course_image: course.image,
         }),
       });
 

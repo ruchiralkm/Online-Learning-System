@@ -236,6 +236,22 @@ app.post("/order-course", (req, res) => {
   );
 });
 
+//! Get courses for a specific student
+app.get("/my-courses", (req, res) => {
+  const { email } = req.query; // Extract student email from query parameters
+
+  const sql =
+    "SELECT course_id, course_title, course_price, course_image FROM ordercourses WHERE student_email = ?";
+  db.query(sql, [email], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error retrieving courses");
+    } else {
+      res.json(results); // Send the courses as JSON response
+    }
+  });
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

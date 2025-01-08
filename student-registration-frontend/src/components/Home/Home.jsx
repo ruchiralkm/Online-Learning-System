@@ -70,23 +70,22 @@ const Home = ({ student }) => {
           <span className="sr-only">Next</span>
         </a>
       </div>
-      <p>Hello, {student ? `${student.id} ${student.last_name}` : "Guest"}!</p>
-      <h1>{student.id}</h1>
-
-      <button>
-        <Link to="/OtherPage" state={{ student }}>
-          OtherPage
-        </Link>
-      </button>
 
       <h1
         className="text-center title-gradient"
-        style={{ marginBottom: "-30px" }}
+        style={{ marginBottom: "-20px", marginTop: "50px" }}
       >
         Explore Our Courses
       </h1>
       {/* Courses cards */}
-      <div style={{ display: "flex", gap: "50px", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "50px",
+          justifyContent: "center",
+          marginTop: "10px",
+        }}
+      >
         <Courses student={student} />
       </div>
     </>

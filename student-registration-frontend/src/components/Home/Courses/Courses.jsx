@@ -27,11 +27,8 @@ const Courses = ({ student }) => {
 
   return (
     <div className="container py-5">
-      <p>
-        Hello, {student.first_name} {student.last_name}{" "}
-      </p>
       {/* //*====== STYLISH SEARCH BAR =====// */}
-      <div className="searchBox mb-4">
+      <div className="searchBox mb-5">
         <input
           type="text"
           className="stylish-search"
