@@ -26,21 +26,21 @@ const Home = ({ student }) => {
           <div className="carousel-item active">
             <img
               className="d-block w-100"
-              src="https://static.vecteezy.com/system/resources/previews/036/226/872/non_2x/ai-generated-nature-landscapes-background-free-photo.jpg"
+              src="https://img.freepik.com/free-vector/flat-design-online-college-sale-banner-template_23-2150593113.jpg"
               alt="First slide"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src="https://static.vecteezy.com/system/resources/thumbnails/037/814/719/small_2x/ai-generated-autumn-leaves-in-the-forest-nature-background-photo.jpg"
+              src="https://static.vecteezy.com/system/resources/thumbnails/009/330/150/small_2x/online-education-landing-page-with-a-boy-studying-with-computer-illustration-in-flat-style-the-concept-of-online-education-illustration-vector.jpg"
               alt="Second slide"
             />
           </div>
           <div className="carousel-item">
             <img
               className="d-block w-100"
-              src="https://static.vecteezy.com/system/resources/thumbnails/049/139/500/small_2x/serene-rainforest-scene-with-lush-green-foliage-and-gentle-rainfall-natural-background-for-relaxation-photo.jpg"
+              src="https://static.vecteezy.com/system/resources/previews/024/479/709/non_2x/flat-design-concept-online-courses-for-website-and-landing-page-template-perfect-for-web-page-design-banner-mobile-app-illustration-vector.jpg"
               alt="Third slide"
             />
           </div>
