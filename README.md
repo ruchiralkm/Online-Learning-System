@@ -72,6 +72,8 @@ npm run dev
 
 <h4>If you are interesting, Please give the star ✨</h4>
 
+<h3>✨This project is open-source | Designed by Ruchira Kaluarachchi | www.ruchiralk.me ✨</h3>
+
 <h2>Preview</h2>
 
 <img src="https://github.com/ruchiralkm/Online-Learning-System/blob/main/preview/LogReg.png?raw=true"> <br/>
