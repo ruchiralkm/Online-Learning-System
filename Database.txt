@@ -1,3 +1,6 @@
+====================== Insert this into the MySQL Workbench ===================
+
+
 CREATE DATABASE Elearning;
 
 USE Elearning;
@@ -20,4 +23,18 @@ CREATE TABLE Courses (
     teacher_name VARCHAR(255),
     lessons INT,
     price DECIMAL(10, 2)
+);
+
+
+CREATE TABLE ordercourses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_first_name VARCHAR(255),
+    student_last_name VARCHAR(255),
+    student_email VARCHAR(255),
+    student_mobile_number VARCHAR(20),
+    course_id INT,
+    course_title VARCHAR(255),
+    course_price DECIMAL(10, 2),
+    course_image VARCHAR(255),
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
