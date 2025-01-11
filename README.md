@@ -24,7 +24,7 @@ Elearning Online-Learning-System is a web-based platform designed to efficiently
 <h2>1. Install Required Tools</h2>
 
  - Node.js: Download and install 👉 https://nodejs.org/en
- - Node.js: Download and install 👉 https://dev.mysql.com/downloads/mysql/
+ - MySQL Workbench: Download and install 👉 https://dev.mysql.com/downloads/mysql/
 
  <h2>2. Create the Database and Tables</h2> 
  
