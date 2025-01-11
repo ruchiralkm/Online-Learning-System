@@ -35,7 +35,7 @@ Elearning Online-Learning-System is a web-based platform designed to efficiently
  <h2>3. Clone the project</h2>
 
  ```bash
-https://github.com/ruchiralkm/Online-Learning-System.git
+git clone https://github.com/ruchiralkm/Online-Learning-System.git
 ```
 
 <h4>Back-end node modules install and run the server</h4>
