@@ -65,8 +65,12 @@ npm i
  ```bash
 npm run dev
 ```
+ - Admin email 👉 admin@gmail.com
+ - Admin password 👉 admin
 
 <h4>Check the all functions...!</h4>
+
+<h4>If you are interesting, Please give the star ✨</h4>
 
 <h2>Preview</h2>
 
